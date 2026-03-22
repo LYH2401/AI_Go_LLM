@@ -205,3 +205,44 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# ==========================================
+# 下面是手动追加的定制规则 (Custom Rules for AI Go Project)
+# ==========================================
+
+# 1. 额外的密钥与敏感配置 (虽然上面有了.env，但多重保险更好)
+*.key
+config_secret.json
+
+# 2. C++ / 编译产物 (为后续 KataGo 或 C++ 扩展做准备)
+*.obj
+*.exe
+*.dll
+*.lib
+build/
+out/
+CMakeCache.txt
+CMakeFiles/
+*.sln
+*.suo
+*.vcproj
+.vs/
+
+# 3. 围棋数据与大模型权重 (体积太大，绝对不能上传 GitHub)
+data/*.sgf
+data/*.zip
+models/*.bin
+models/*.safetensors
+models/*.pt
+models/*.pth
+models/*.onnx
+
+# 4. 操作系统生成的垃圾文件
+.DS_Store
+Thumbs.db
+
+# 忽略所有的 SGF 文件夹和数据文件
+Go SGF/
+*.sgf
+*.jsonl
