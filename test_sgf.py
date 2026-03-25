@@ -9,14 +9,13 @@ with open("sample.sgf", "rb") as f:
 # 2. 让 sgfmill 这个库来读取它
 try:
     game = sgf.Sgf_game.from_bytes(sgf_content)
-    
     # 3. 提取对局的基本信息
     root_node = game.get_root()
     black_player = root_node.get("PB") # PB = Player Black
     white_player = root_node.get("PW") # PW = Player White
     result = root_node.get("RE")       # RE = Result
     
-    print("\n✅ 棋谱读取成功！")
+    print("\n 棋谱读取成功！")
     print("-" * 30)
     print(f"执黑：{black_player}")
     print(f"执白：{white_player}")
@@ -29,4 +28,4 @@ try:
     print("-" * 30)
 
 except Exception as e:
-    print(f"❌ 读取出错了：{e}")
+    print(f" 读取错误：{e}")

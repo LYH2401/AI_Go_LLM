@@ -1,3 +1,4 @@
+# 该文件用于从 SGF 棋谱文件中提取开局信息，生成适合大模型微调训练的 JSONL 数据集。请根据需要修改 source_folder 和 output_jsonl 变量。
 import os
 import json
 from sgfmill import sgf
@@ -13,7 +14,7 @@ def format_coordinate(row, col):
     return f"{letters[col]}{row + 1}"
 
 def create_dataset_from_sgf(folder_path, output_file):
-    print(f"🚀 开始扫描文件夹: {folder_path}")
+    print(f" 开始扫描文件夹: {folder_path}")
     dataset = []
     success_count = 0
 
@@ -31,8 +32,7 @@ def create_dataset_from_sgf(folder_path, output_file):
             main_sequence = game.get_main_sequence()
             moves = []
             
-            # 提取前 6 手棋 (我们用前 5 手作为问题，第 6 手作为答案)
-            # 你可以以后改成前 10 手猜 11 手，随便定！
+            # 提取前 6 手棋 (用前 5 手作为问题，第 6 手作为答案)
             for node in main_sequence:
                 color, move = node.get_move()
                 if color is not None and move is not None:
@@ -70,14 +70,14 @@ def create_dataset_from_sgf(folder_path, output_file):
             # ensure_ascii=False 保证中文正常显示
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
             
-    print(f"🎉 数据集生成完毕！成功处理 {success_count} 个棋谱。")
-    print(f"📁 你的大模型训练数据保存在: {output_file}")
+    print(f" 数据集生成完毕！成功处理 {success_count} 个棋谱。")
+    print(f" 大模型训练数据保存在: {output_file}")
 
 if __name__ == "__main__":
-    # 【请修改为你的文件夹路径】（可以先用那个“高中国流”的文件夹测试）
+    
     source_folder = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF"
     
-    # 我们将生成的文件名
+    
     output_jsonl = "go_training_dataset.jsonl"
     
     create_dataset_from_sgf(source_folder, output_jsonl)

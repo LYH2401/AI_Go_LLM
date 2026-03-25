@@ -1,3 +1,4 @@
+# 该文件用于解析 SGF 棋谱文件，提取前 10 手棋的落子信息，并打印出来。请根据需要修改 test_file 变量，指向你想要分析的 SGF 文件路径。
 import os
 from sgfmill import sgf
 
@@ -5,7 +6,7 @@ def analyze_sgf_moves(file_path):
     """
     使用 sgfmill 库解析棋谱，提取前 10 手棋
     """
-    print(f"🔍 正在解析: {os.path.basename(file_path)}")
+    print(f" 正在解析: {os.path.basename(file_path)}")
     
     try:
         with open(file_path, "rb") as f:
@@ -15,7 +16,7 @@ def analyze_sgf_moves(file_path):
         # 获取主线对局记录
         main_sequence = game.get_main_sequence()
         
-        print("✅ 解析成功！前 10 手棋如下：")
+        print(" 解析成功！前 10 手棋如下：")
         print("-" * 30)
         
         # 遍历前 10 个节点（第0个节点通常是棋局信息，比如规则、贴目等，包含实际落子的是之后的节点）
@@ -31,17 +32,16 @@ def analyze_sgf_moves(file_path):
                 print(f"第 {moves_count} 手: {color_name} 落子在坐标 ({row}, {col})")
                 
                 if moves_count >= 10:
-                    break # 只看前10手
+                    break # 这里只看前10手
                     
         print("-" * 30)
         
     except Exception as e:
-        print(f"❌ 解析失败: {e}")
+        print(f" 解析失败: {e}")
 
 if __name__ == "__main__":
-    # 【请修改这里】：随便从你刚才重命名的文件夹里挑一个文件路径放进来
-    # 例如：r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF\高中国流259局\高中国流_S00001.sgf"
-    test_file = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF\CSP01.SGF"  # 先拿外面的测试一下
+    #测试文件路径
+    test_file = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF\CSP01.SGF"  
     
     if os.path.exists(test_file):
         analyze_sgf_moves(test_file)
