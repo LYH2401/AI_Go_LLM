@@ -19,7 +19,7 @@ def download_and_extract_sgf_zip():
     DATASET_URL = "https://github.com/SabakiHQ/sgf-test-files/archive/refs/heads/master.zip"
 
     
-    print(f"📦 正在从 {DATASET_URL} 下载数据，这可能需要一些时间...")
+    print(f" 正在从 {DATASET_URL} 下载数据，这可能需要一些时间...")
     
     try:
         # 【关键修改】：加入了 verify=False，强行忽略证书验证！
@@ -33,7 +33,7 @@ def download_and_extract_sgf_zip():
                         file_info.filename = os.path.basename(file_info.filename)
                         if file_info.filename:
                             zip_ref.extract(file_info, SAVE_DIR)
-                            print(f"📄 提取成功: {file_info.filename}")
+                            print(f" 提取成功: {file_info.filename}")
             print(f" 任务完成！请检查文件夹：{SAVE_DIR}")
         else:
             print(f" 下载失败，服务器返回状态码: {response.status_code}")
