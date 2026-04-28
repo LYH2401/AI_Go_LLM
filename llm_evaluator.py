@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 LLM围棋评估模块
 功能：调用大语言模型分析围棋局面，并用KataGo评估结果质量

@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 围棋SGF棋谱解析模块
 功能：解析SGF文件，提取棋盘状态和着法序列

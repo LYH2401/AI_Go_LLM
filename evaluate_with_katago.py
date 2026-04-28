@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 KataGo围棋AI引擎封装模块
 功能：初始化KataGo引擎、发送GTP命令、分析围棋局面
