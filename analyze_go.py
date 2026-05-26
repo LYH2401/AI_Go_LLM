@@ -6,7 +6,7 @@
 import os
 from typing import Tuple, List, Optional
 from sgfmill import sgf, boards
-
+from config import SGF_DIR, OUTPUT_DIR
 
 def extract_board_and_moves(file_path: str, target_move_num: int = 10) -> Tuple[Optional[boards.Board], Optional[str], List[str]]:
     """
@@ -254,7 +254,7 @@ if __name__ == "__main__":
     print("=" * 60)
     
     # 测试文件路径
-    test_file = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF\CSP01.SGF"
+    test_file = SGF_DIR / "game.sgf"
     
     if not os.path.exists(test_file):
         # 尝试其他可能的路径

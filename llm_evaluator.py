@@ -10,6 +10,7 @@ import sys
 from typing import Optional, Dict, Tuple, List, Any
 from openai import OpenAI
 from dotenv import load_dotenv
+from config import SGF_DIR, OUTPUT_DIR
 
 # 导入其他模块
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -525,7 +526,7 @@ def test_llm_evaluator():
     # 测试SGF文件处理
     print("\n2. 测试SGF文件处理:")
     
-    sgf_path = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF\CSP01.SGF"
+    sgf_path = SGF_DIR / "game.sgf"
     
     # 尝试多个可能的路径
     alt_paths = [

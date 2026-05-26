@@ -49,7 +49,7 @@ graph LR
 | 认证 | `DEEPSEEK_API_KEY` | API 密钥 |
 | 端点 | `DEEPSEEK_BASE_URL` | API 服务地址 |
 | KataGo 路径 | `KATAGO_PATH` | 可执行文件路径 |
-| 配置 | `KATAGO_CONFIG_PATH` | GTP 配置文件路径 |
-| 模型 | `KATAGO_MODEL_PATH` | 神经网络模型路径 |
+| 配置 | `KATAGO_CONFIG` | GTP 配置文件路径 |
+| 模型 | `KATAGO_MODEL` | 神经网络模型路径 |
 | 环境管理 | python-dotenv | `.env` 文件加载 |
 | 数据格式 | JSONL (Alpaca) | 训练数据存储 |

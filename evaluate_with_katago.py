@@ -475,10 +475,10 @@ def test_katago_engine():
     from dotenv import load_dotenv
     load_dotenv()
     
-    # 配置路径（优先使用环境变量）
-    KATAGO_PATH = os.getenv("KATAGO_PATH", r"C:\katago\katago.exe")
-    CONFIG_PATH = os.getenv("KATAGO_CONFIG_PATH", r"C:\katago\gtp_example.cfg")
-    MODEL_PATH = os.getenv("KATAGO_MODEL_PATH", r"C:\katago\model.bin.gz")
+    # 配置路径（优先使用环境变量，与 config.py 保持一致）
+    KATAGO_PATH = os.getenv("KATAGO_PATH", "katago")
+    CONFIG_PATH = os.getenv("KATAGO_CONFIG", "")
+    MODEL_PATH = os.getenv("KATAGO_MODEL", "")
     
     print(f"KataGo路径: {KATAGO_PATH}")
     print(f"配置路径: {CONFIG_PATH}")
@@ -500,8 +500,8 @@ def test_katago_engine():
         print("\n请执行以下操作之一:")
         print("1. 在.env文件中设置正确的环境变量:")
         print("   KATAGO_PATH=你的katago.exe路径")
-        print("   KATAGO_CONFIG_PATH=你的gtp_example.cfg路径")
-        print("   KATAGO_MODEL_PATH=你的model.bin.gz路径")
+        print("   KATAGO_CONFIG=你的gtp_example.cfg路径")
+        print("   KATAGO_MODEL=你的model.bin.gz路径")
         print("\n2. 或者直接修改test_katago_engine()函数中的路径变量")
         
         return False

@@ -5,12 +5,13 @@ import requests
 import zipfile
 import io
 import urllib3
+from config import SGF_DIR
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-SAVE_DIR = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF"
+SAVE_DIR = SGF_DIR
 
 def download_and_extract_sgf_zip():
     print(" 开始执行批量 SGF 下载与解压任务...")

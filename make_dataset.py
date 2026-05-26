@@ -3,6 +3,8 @@ import os
 import json
 from sgfmill import sgf
 
+from config import SGF_DIR, OUTPUT_DIR
+
 def format_coordinate(row, col):
     """
     将 sgfmill 的 (row, col) 转换为国际通用的 GTP 坐标 (如 Q16)
@@ -75,7 +77,7 @@ def create_dataset_from_sgf(folder_path, output_file):
 
 if __name__ == "__main__":
     
-    source_folder = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF"
+    source_folder = SGF_DIR
     
     
     output_jsonl = "go_training_dataset.jsonl"

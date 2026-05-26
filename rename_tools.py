@@ -1,8 +1,9 @@
 #该文件用于批量重命名文件夹中的SGF文件，添加前缀以防止文件名重复。请根据需要修改target_folder和prefix变量。
 import os
+from config import SGF_DIR
 
 def batch_rename_sgf():
-    target_folder = r"E:\Github Projects\AI_Go_LLM\AI_Go_LLM\Go SGF\迷你中国流224局"
+    target_folder = SGF_DIR
     
     # 添加的前缀防止文件名重复
     prefix = "minizgl_"
