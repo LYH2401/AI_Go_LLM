@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 # ----- 项目根目录（自动检测）-----
 PROJECT_ROOT = Path(__file__).parent.resolve()
 # ----- 数据目录 -----
-DATA_DIR = Path(os.getenv("DATA_DIR", PROJECT_ROOT / "data"))
-SGF_DIR = DATA_DIR / "sgf"            # 原始 SGF 棋谱
+DATA_DIR = Path(os.getenv("DATA_DIR", PROJECT_ROOT / "Go SGF"))
+SGF_DIR = PROJECT_ROOT / "Go SGF"            # 原始 SGF 棋谱
 OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", PROJECT_ROOT / "output"))
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)  # 自动创建
 # ----- KataGo 配置 -----
