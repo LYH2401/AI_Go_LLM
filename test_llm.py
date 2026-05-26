@@ -17,7 +17,7 @@ client = OpenAI(
 
 try:
     response = client.chat.completions.create(
-        model="deepseek-reasnoer",
+        model="deepseek-v4-pro",
         messages=[
             {"role": "system", "content": "你是一位围棋九段高手，同时也是一位极其幽默的AI助手。"},
             {"role": "user", "content": "你好！我已经成功连接到你了，准备好和我一起分析围棋棋谱了吗？请用一句话简短回应我。"}
