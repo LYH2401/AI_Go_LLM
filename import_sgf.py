@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 from datetime import datetime
 import sgfmill.sgf
-
+from config import SGF_DIR, OUTPUT_DIR
 
 # ===== 配置 =====
 # 从环境变量获取配置，如果没有设置则使用默认值
@@ -23,9 +23,9 @@ def extract_metadata(sgf_path: Path) -> dict | None:
     """
 
     try:
-        with open (sgf_path: "rb") as f:
+        with open (sgf_path了, "rb") as f:
             game = sgfmill.sgf.Sgf_game.from_bytes(f.read())
-        root = game.get.root()  # 获取根节点属性
+        root = game.get_root()  # 获取根节点属性
         winner = root.get ("RE", "Unknown")  # 对局结果 B + 1.5 / W + R 等
         player_b = root.get ("PB", "Unknown")  # 黑棋选手
         player_w = root.get ("PW", "Unknown")  # 白棋选手
@@ -41,7 +41,7 @@ def extract_metadata(sgf_path: Path) -> dict | None:
             node = node[0] if len(node) > 0 else None
             if node is None:
                 break
-            move = move.get_move()
+            move = node.get_move()
             if move is not None:
                 color, (row, col) = move
                 moves.append({"color": "B" if color == "b" else "W", "row": row, "col": col})
