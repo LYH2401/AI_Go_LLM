@@ -23,7 +23,7 @@ def extract_metadata(sgf_path: Path) -> dict | None:
     """
 
     try:
-        with open (sgf_path了, "rb") as f:
+        with open (sgf_path, "rb") as f:
             game = sgfmill.sgf.Sgf_game.from_bytes(f.read())
         root = game.get_root()  # 获取根节点属性
         winner = root.get ("RE", "Unknown")  # 对局结果 B + 1.5 / W + R 等

@@ -80,6 +80,6 @@ if __name__ == "__main__":
     source_folder = SGF_DIR
     
     
-    output_jsonl = "go_training_dataset.jsonl"
+    output_jsonl = str(OUTPUT_DIR / "go_training_dataset.jsonl")
     
     create_dataset_from_sgf(source_folder, output_jsonl)

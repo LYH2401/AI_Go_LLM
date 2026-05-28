@@ -3,7 +3,20 @@ from sgfmill import sgf
 print("正在解析棋谱...")
 
 # 1. 打开我们刚才准备的 sample.sgf 文件
-with open("sample.sgf", "rb") as f:
+from config import SGF_DIR
+import sys
+# 优先使用命令行参数，否则使用默认路径
+if len(sys.argv) > 1:
+    sgf_path = sys.argv[1]
+else:
+    # 默认取 SGF_DIR 下第一个 .sgf 文件
+    candidates = list(SGF_DIR.glob("*.sgf"))
+    if not candidates:
+        print(f"❌ 未找到 SGF 文件，请在 {SGF_DIR} 下放置棋谱")
+        sys.exit(1)
+    sgf_path = str(candidates[0])
+print(f"正在解析棋谱: {sgf_path}")
+with open(sgf_path, "rb") as f:
     sgf_content = f.read()
 
 # 2. 让 sgfmill 这个库来读取它

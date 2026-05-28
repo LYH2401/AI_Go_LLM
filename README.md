@@ -44,7 +44,7 @@ graph LR
 | 语言 | Python 3 | — |
 | SGF 解析 | sgfmill | 棋谱读取 |
 | LLM 接入 | OpenAI SDK | 调用 DeepSeek API |
-| LLM 服务 | DeepSeek (deepseek-reasoner) | 局面分析与着法推荐 |
+| LLM 服务 | DeepSeek (deepseek-v4-pro) | 局面分析与着法推荐 |
 | 围棋 AI | KataGo (GTP) | 着法质量基准 |
 | 认证 | `DEEPSEEK_API_KEY` | API 密钥 |
 | 端点 | `DEEPSEEK_BASE_URL` | API 服务地址 |
